@@ -12,13 +12,18 @@ import { newUserRegistration } from "./userRegAction";
 import { useDispatch, useSelector } from "react-redux";
 
 const initialState = {
-  name: "Prem Acharya",
-  phone: "0410000000",
-  email: "fakeemail@email.com",
-  company: "Dented Code",
+  identificationType: "",
+  identificationNumber:123 ,
+  companyName: "Dented Code",
+  firstName:'',
+  secondName:'',
+  firstLastName:'',
+  secondLastName:'',
+  email: "",  
   address: "George st Sydney",
-  password: "sfsd#3Dsg",
-  confirmPass: "sfsd#3Dsg",
+  municipalityAddress:'',
+  cellPhone: "",
+ 
 };
 const passVerificationError = {
   isLenthy: false,
