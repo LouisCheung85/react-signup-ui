@@ -7,9 +7,11 @@ import {
   Button,
   Spinner,
   Alert,
+  Modal
 } from "react-bootstrap";
 import { newUserRegistration } from "./userRegAction";
 import { useDispatch, useSelector } from "react-redux";
+import { RegistrationValidationModal } from "./RegistrationValidationModal.comp";
 
 const initialState = {
   identificationType: "",
@@ -92,7 +94,9 @@ const RegistrationForm = () => {
   };
 
   return (
+    // <RegistrationValidationModal></RegistrationValidationModal>
     <Container>
+      <RegistrationValidationModal />
       <Row>
         <Col>
           <h1 className="text-info">User Registration</h1>
@@ -113,37 +117,29 @@ const RegistrationForm = () => {
         <Col>
           <Form onSubmit={handleOnSubmit}>
             <Form.Group>
-              <Form.Label>Full Name</Form.Label>
+              <Form.Label>Identification Type</Form.Label>
               <Form.Control
-                type="text"
-                name="name"
-                value={newUser.name}
+                as="select"
+                type="select"
+                name="identificationType"
+                value={newUser.identificationType}
                 onChange={handleOnChange}
-                placeholder="Your name"
-                required
-              />
+                placeholder="Identification Type"
+                required>
+                  <option value="1">A</option>
+                  <option value="1">B</option>
+                  <option value="1">C</option>
+                  <option value="1">D</option>
+                </Form.Control>
             </Form.Group>
-
             <Form.Group>
-              <Form.Label>Phone</Form.Label>
+              <Form.Label>Identification Number</Form.Label>
               <Form.Control
                 type="number"
-                name="phone"
-                value={newUser.phone}
+                name="identificationNumber"
+                value={newUser.identificationNumber}
                 onChange={handleOnChange}
-                placeholder="Phone"
-                required
-              />
-            </Form.Group>
-
-            <Form.Group>
-              <Form.Label>Email address</Form.Label>
-              <Form.Control
-                type="email"
-                name="email"
-                value={newUser.email}
-                onChange={handleOnChange}
-                placeholder="Enter email"
+                placeholder="Identification Number"
                 required
               />
             </Form.Group>
@@ -152,13 +148,74 @@ const RegistrationForm = () => {
               <Form.Label>Company name</Form.Label>
               <Form.Control
                 type="text"
-                name="company"
-                value={newUser.company}
+                name="companyName"
+                value={newUser.companyName}
                 onChange={handleOnChange}
-                placeholder="Company name"
+                placeholder="Company Name"
                 required
               />
             </Form.Group>
+
+            <Form.Group>
+              <Form.Label>First Name</Form.Label>
+              <Form.Control
+                type="text"
+                name="firstName"
+                value={newUser.firstName}
+                onChange={handleOnChange}
+                placeholder="First Name"
+                required
+              />
+            </Form.Group>
+            
+            
+            <Form.Group>
+              <Form.Label>Second Name</Form.Label>
+              <Form.Control
+                type="text"
+                name="secondName"
+                value={newUser.secondName}
+                onChange={handleOnChange}
+                placeholder="Second Name"
+                required
+              />
+            </Form.Group>
+            
+            <Form.Group>
+              <Form.Label>First last Name</Form.Label>
+              <Form.Control
+                type="text"
+                name="firstLastName"
+                value={newUser.firstLastName}
+                onChange={handleOnChange}
+                placeholder="First last Name"
+                required
+              />
+            </Form.Group>
+
+            <Form.Group>
+              <Form.Label>Second Last Name</Form.Label>
+              <Form.Control
+                type="text"
+                name="secondLastName"
+                value={newUser.secondLastName}
+                onChange={handleOnChange}
+                placeholder="Second Last Name"
+                required
+              />
+            </Form.Group>
+
+            <Form.Group>
+              <Form.Label>Email</Form.Label>
+              <Form.Control
+                type="email"
+                name="email"
+                value={newUser.email}
+                onChange={handleOnChange}
+                placeholder="Enter email"
+                required
+              />
+            </Form.Group>         
 
             <Form.Group>
               <Form.Label>Address</Form.Label>
@@ -173,34 +230,35 @@ const RegistrationForm = () => {
             </Form.Group>
 
             <Form.Group>
-              <Form.Label>Password</Form.Label>
+              <Form.Label>municipality of the address:</Form.Label>
               <Form.Control
-                type="password"
-                name="password"
-                value={newUser.password}
+                type="text"
+                name="municipalityAddress"
+                value={newUser.municipalityAddress}
                 onChange={handleOnChange}
-                placeholder="Password"
+                placeholder="municipality of the address"
                 required
               />
             </Form.Group>
 
             <Form.Group>
-              <Form.Label>Confirm Password</Form.Label>
+              <Form.Label>Cell Phone</Form.Label>
               <Form.Control
-                type="password"
-                name="confirmPass"
-                value={newUser.confirmPass}
+                type="number"
+                name="cellPhone"
+                value={newUser.cellPhone}
                 onChange={handleOnChange}
-                placeholder="Confirm Password"
+                placeholder="Cell Phone"
                 required
               />
             </Form.Group>
-            <Form.Text>
+
+            {/* <Form.Text>
               {!passwordError.confirmPass && (
                 <div className="text-danger mb-3">Password doesn't match!</div>
               )}
-            </Form.Text>
-
+            </Form.Text> */}
+{/* 
             <ul className="mb-4">
               <li
                 className={
@@ -237,7 +295,7 @@ const RegistrationForm = () => {
               >
                 At least on of the special characters i.e @ # $ % &{" "}
               </li>
-            </ul>
+            </ul> */}
 
             <Button
               variant="primary"
@@ -250,11 +308,11 @@ const RegistrationForm = () => {
           </Form>
         </Col>
       </Row>
-      <Row className="py-4">
+      {/* <Row className="py-4">
         <Col>
           Already have an account <a href="/">Login Now</a>
         </Col>
-      </Row>
+      </Row> */}
     </Container>
   );
 };
