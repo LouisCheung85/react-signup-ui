@@ -12,19 +12,7 @@ import {
 import { newUserRegistration } from "./userRegAction";
 import { useDispatch, useSelector } from "react-redux";
 
-const initialState = {
-    identificationType: "",
-    identificationNumber:123 ,
-    companyName: "Dented Code",
-    firstName:'',
-    secondName:'',
-    firstLastName:'',
-    secondLastName:'',
-    email: "",  
-    address: "George st Sydney",
-    municipalityAddress:'',
-    cellPhone: "",   
-  };
+
 
   const passVerificationError = {
     isLenthy: false,
@@ -38,6 +26,7 @@ const initialState = {
 export const RegistrationValidationPass=(props)=>
 {
     const dispatch = useDispatch();
+    const initialState=props.shareData.initialData;
     const [newUser, setNewUser] = useState(initialState);
     const [passwordError, setPasswordError] = useState(passVerificationError);
     const [isvalid,setValidate]=useState(false);

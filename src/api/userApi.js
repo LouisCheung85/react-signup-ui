@@ -127,13 +127,10 @@ export const npiNumberValidate=async (npiNumber)=>{
   return new Promise(async (resolve, reject) => {
     try {
       const res = await axios.get(`${npiNumberVerificationUrl}/${npiNumber}`);
-      resolve(res.data);
-      if (res.data.status === "success") {
-        resolve(res.data);
-      }
+      resolve(res.data);   
     } catch (error) {
      // console.log(error);
-      reject({ status: "error", message: error.error });
+      reject({ status: "error", message: error.message });
     }
   });
 }

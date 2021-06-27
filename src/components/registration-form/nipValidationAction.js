@@ -1,12 +1,7 @@
 import {  npiNumberValidate  } from "../../api/userApi";
 
-export const ValidateNpiNumber=(npiNumbner)=> async (dispatch)=>{
-    try {
-        
-        const result= await npiNumberValidate(npiNumbner);
+export const ValidateNpiNumber=(npiNumbner)=> async (dispatch)=>{ 
 
+    return  await npiNumberValidate(npiNumbner);
   
-    } catch (error) {
-        console.log(error)
-    }
 }

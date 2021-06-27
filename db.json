@@ -1,7 +1,43 @@
 {
-        "verify":[
-        {"id":900674336,"status":"1"},
-        {"id":811033098,"status":"1"},
-        {"id":900674335,"status":"0"}        
-      ]
+  "verify": [
+    {
+      "id": "900674336",
+      "status": "1",
+      "data": {
+        "identificationType": "",
+        "identificationNumber": 123,
+        "companyName": "Dented Code",
+        "firstName": "",
+        "secondName": "",
+        "firstLastName": "",
+        "secondLastName": "",
+        "email": "",
+        "address": "George st Sydney",
+        "municipalityAddress": "",
+        "cellPhone": ""
+      }
+    },
+    {
+      "id": "811033098",
+      "status": "1",
+      "data": {
+        "identificationType": "",
+        "identificationNumber": 456,
+        "companyName": "Dented Code",
+        "firstName": "",
+        "secondName": "",
+        "firstLastName": "",
+        "secondLastName": "",
+        "email": "",
+        "address": "George st Sydney",
+        "municipalityAddress": "",
+        "cellPhone": ""
+      }
+    },
+    {
+      "id": "900674335",
+      "status": "0",
+      "data":{}
+    }
+  ]
 }

@@ -10,6 +10,8 @@ const initialState={
 
 export const RegistrationNotValidation = (props) => {
 
+    const {initialData,setValid}=props.shareData;
+    console.log(props);
     const [newUser, setNewUser] = useState(initialState);
     const dispatch = useDispatch();
     const handleOnChange = (e) => {
@@ -20,9 +22,28 @@ export const RegistrationNotValidation = (props) => {
     const handleOnSubmit = (e) => {
          e.preventDefault();
          const {newNumber}=newUser;
-         dispatch(ValidateNpiNumber(newNumber));
-         //ValidateNpiNumber(newNumber);
-
+       const result=dispatch(ValidateNpiNumber(newNumber));
+        result.then(res=>{
+          //console.log(res);
+          if(res.status==="0"){
+              alert('Company unable to register');
+          }else{
+              
+                for (const key in initialData) {
+                    if (!!res.data[key]) {
+                        initialData[key]=res.data[key];                        
+                    }
+                }
+                setValid(true);
+            
+                
+          }
+        }).catch(er=>{
+            alert('Invalid input');
+            setNewUser({...newUser,"newNumber":""});
+        });
+        
+         
     }
     useEffect(()=>{},[newUser])
     return (
