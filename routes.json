@@ -1,0 +1,4 @@
+{
+    "/v1/:resource/:id": "/:resource/:id",
+    "/v1/verify/:resource/:id": "/:resource/:id"
+}

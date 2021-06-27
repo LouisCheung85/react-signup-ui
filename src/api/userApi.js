@@ -2,12 +2,11 @@ import axios from "axios";
 
 const rootUrl = "http://localhost:3001/v1/";
 const loginUrl = rootUrl + "user/login";
-const npiUrl=rootUrl+"npi"
 const userProfileUrl = rootUrl + "user";
 const logoutUrl = rootUrl + "user/logout";
 const newAccessJWT = rootUrl + "tokens";
 const userVerificationUrl = userProfileUrl + "/verify";
-const npiNumberVerificationUrl=npiUrl+"/verify";
+const npiNumberVerificationUrl=rootUrl+"verify";
 
 export const userRegistration = (frmData) => {
   return new Promise(async (resolve, reject) => {
@@ -127,7 +126,7 @@ export const userLogout = async () => {
 export const npiNumberValidate=async (npiNumber)=>{
   return new Promise(async (resolve, reject) => {
     try {
-      const res = await axios.patch(npiNumberVerificationUrl, npiNumber);
+      const res = await axios.get(`${npiNumberVerificationUrl}/${npiNumber}`);
 
       resolve(res.data);
       if (res.data.status === "success") {

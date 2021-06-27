@@ -3,24 +3,26 @@ import { Modal, Form, Button, Container, Row, Col, } from 'react-bootstrap'
 import { useDispatch } from 'react-redux';
 import { ValidateNpiNumber } from "./nipValidationAction";
 
-const handleOnChange = (e) => {
-    const { name, value } = e.target;   
-}
+
 const initialState={
     newNumber:""
 }
+
 export const RegistrationNotValidation = (props) => {
 
     const [newUser, setNewUser] = useState(initialState);
-    const [show, setShow] = useState(true);
     const dispatch = useDispatch();
-
+    const handleOnChange = (e) => {
+        const { name, value } = e.target;   
+        setNewUser({...newUser,[name]:value});
+    }
+  
     const handleOnSubmit = (e) => {
          e.preventDefault();
          const {newNumber}=newUser;
          dispatch(ValidateNpiNumber(newNumber));
     }
-    useEffect(()=>{},newUser)
+    useEffect(()=>{},[newUser])
     return (
         <>
             <Row>
@@ -38,10 +40,10 @@ export const RegistrationNotValidation = (props) => {
                             <Form.Control
                                 type="text"
                                 name="newNumber"
-                                //  value={newUser.newNumber}
-                                 onChange={handleOnChange}
-                                  placeholder="enter NIT"
-                                 required
+                                value={newUser.newNumber}
+                                onChange={handleOnChange}
+                                placeholder="enter NIT"
+                                required
                             >
                             </Form.Control>
                         </Form.Group>                             
