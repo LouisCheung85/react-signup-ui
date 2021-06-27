@@ -21,6 +21,8 @@ export const RegistrationNotValidation = (props) => {
          e.preventDefault();
          const {newNumber}=newUser;
          dispatch(ValidateNpiNumber(newNumber));
+         //ValidateNpiNumber(newNumber);
+
     }
     useEffect(()=>{},[newUser])
     return (
